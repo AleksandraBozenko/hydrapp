@@ -4,6 +4,7 @@
 
 html {
   box-sizing: border-box;
+  font-family: 'Nunito Sans', sans-serif;
 }
 
 *, *:before, *:after {
@@ -11,7 +12,7 @@ html {
 }
 .main{
   width: 100%;
-  background: rgb(36, 98, 214);
+  background: $bg;
 }
 .water{
   width: 100%;
@@ -41,15 +42,15 @@ html {
     &--text{
       margin: 0;
       width: 200px;
-      padding: 10px;
+      padding: 20px;
       color: white;
-      // letter-spacing: 2px;
+      font-size: 1.2em;
     }
   }
   &__add{
     background: #000;
   }
   &__remove{
-    background: rgb(62, 128, 226);
+    background: $lightBlue;
   }
 }
