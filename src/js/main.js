@@ -34,23 +34,49 @@ const remove = document.querySelector('.water__remove');
 //     counter.innerHTML = {i}--;
 //   };
 // })
+const sumUp = document.querySelector('.water__sum');
 
+sumUp.innerHTML = `Czas na łyk wody!`;
 
 counter.innerHTML = 0;
+
 add.addEventListener('click', (e) => {
   if(counter.innerHTML < 10){
     counter.innerHTML = parseInt(counter.innerHTML) + 1;
     };
   localStorage.setItem('counter', counter.innerHTML);
+  sumUp.innerHTML = `Ilość szklanek wody na dziś: ${counter.innerHTML}`;
 })
 
 remove.addEventListener('click', (e) => {
   if(counter.innerHTML > 0){
     counter.innerHTML = parseInt(counter.innerHTML) - 1;
     };
-  localStorage.setItem('counter', counter.innerHTML);
+   localStorage.setItem('counter', counter.innerHTML);
+   sumUp.innerHTML = `Ilość szklanek wody na dziś: ${counter.innerHTML}`;
 })
+
+// sumUp.innerHTML = `Czas na łyk wody!`;
 
 if (localStorage.getItem('counter')){
   counter.innerHTML = localStorage.getItem('counter');
 }
+
+// Funkcja nieużyta
+
+// sumUp.innerHTML = `wypiłeś ${counter.innerHTML} szklanek wody`;
+
+// function description() {
+// if (counter.innerHTML = 1){
+//   sumUp.innerHTML = `wypiłeś ${counter.innerHTML} szklankę wody`;
+// }
+// else if(counter.innerHTML = 0 ){
+//   sumUp.innerHTML = `wypiłeś ${counter.innerHTML} szklanek wody`;
+// }
+// else if(counter.innerHTML > 1){
+//   sumUp.innerHTML = `wypiłeś ${counter.innerHTML} szklanki wody`;
+// }
+// else{
+//   sumUp.innerHTML = `wypiłeś ${counter.innerHTML} szklanek wody`;
+// }
+// }
