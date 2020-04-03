@@ -14,54 +14,43 @@ if ('serviceWorker' in navigator) {
   });
 }
 
+
+
 const counter = document.querySelector('.water__glass--counter');
 const add = document.querySelector('.water__add');
 const remove = document.querySelector('.water__remove');
 
-// counter.innerHTML = 0;
+// Licznik szklanek
 
+// i = 0;
 // add.addEventListener('click', (e) =>{
-//   do{
-//     counter.innerHTML ++;
-//   }while(counter.innerHTML > 10);
+//   if(i > 10){
+//     counter.innerHTML = {i}++;
+//   };
 // })
 
 // remove.addEventListener('click', (e) =>{
-//   do{
-//     counter.innerHTML --;
-//   }while(counter.innerHTML >= 10);
-// })
-i = 0;
-add.addEventListener('click', (e) =>{
-  if(i > 10){
-    counter.innerHTML = {i}++;
-  };
-})
-
-remove.addEventListener('click', (e) =>{
-  if(i > 10){
-    counter.innerHTML = {i}--;
-  };
-})
-
-// remove.addEventListener('click', (e) =>{
-//   do{
+//   if(i > 10){
 //     counter.innerHTML = {i}--;
-//   }while(i > 0);
-//   if(i <= 0){
-//     console.log(nie);
-//   }
+//   };
 // })
 
-// counter.innerHTML = 0;
-// add.addEventListener('click', (e) => {
-//   if(counter.innerHTML < 10){
-//     counter.innerHTML = parseInt(counter.innerHTML) + 1;
-//     };
-// })
 
-// remove.addEventListener('click', (e) => {
-//   if(counter.innerHTML > 0){
-//     counter.innerHTML = parseInt(counter.innerHTML) - 1;
-//     };
-// })
+counter.innerHTML = 0;
+add.addEventListener('click', (e) => {
+  if(counter.innerHTML < 10){
+    counter.innerHTML = parseInt(counter.innerHTML) + 1;
+    };
+  localStorage.setItem('counter', counter.innerHTML);
+})
+
+remove.addEventListener('click', (e) => {
+  if(counter.innerHTML > 0){
+    counter.innerHTML = parseInt(counter.innerHTML) - 1;
+    };
+  localStorage.setItem('counter', counter.innerHTML);
+})
+
+if (localStorage.getItem('counter')){
+  counter.innerHTML = localStorage.getItem('counter');
+}
