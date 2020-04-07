@@ -19,29 +19,30 @@ if ('serviceWorker' in navigator) {
 const counter = document.querySelector('.water__glass--counter');
 const add = document.querySelector('.water__add');
 const remove = document.querySelector('.water__remove');
+const key = new Date().toISOString().slice (0, 10);
 
 
+if(!localStorage.getItem(key)){
+  localStorage.setItem(key, 0);
+  counter.innerHTML = '0';
+} else{
+  counter.innerHTML = localStorage.getItem(key);
+}
 
 //Licznik szklanek
 
-
 add.addEventListener('click', (e) => {
-  counter.innerHTML = parseInt(counter.innerHTML) + 1;
-  // localStorage.setItem('counter', currentValue);
-
+  localStorage.setItem(key, parseInt(localStorage.getItem(key)) + 1);
+  counter.innerHTML = localStorage.getItem(key);
 })
 
 remove.addEventListener('click', (e) => {
 
-const currentValue = parseInt(counter.innerHTML);
+const currentValue = parseInt(localStorage.getItem(key));
 
   if(currentValue > 0){
-    counter.innerHTML = currentValue - 1;
-  //  localStorage.setItem('counter', currentValue);
+    localStorage.setItem(key, parseInt(localStorage.getItem(key)) - 1);
+    counter.innerHTML = parseInt(localStorage.getItem(key));
     };
 })
 
-
-// if (localStorage.getItem('counter')){
-//   counter.innerHTML = localStorage.getItem('counter', currentValue);
-// }
